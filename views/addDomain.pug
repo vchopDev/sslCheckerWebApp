@@ -1,6 +1,9 @@
 extends layout
 
 block content
+  if errors
+    each error in errors
+      p.alert.alert-danger= error.msg
   div.container.container.fluid
     form(action="/domains/addDomain" method="POST")
       input(type="text" name="name" placeholder="example.com").form-control
