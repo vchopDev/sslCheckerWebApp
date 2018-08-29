@@ -1,0 +1,10 @@
+  Controllo scandenze
+    All'inserimento si controlla la scandenza
+    Ogni giorno controllo quanto manca alla scandenza per ogni dominio della lista
+    Faccio il compare della data di oggi con quello del certificato
+
+  Funzionalità mail
+    mandare una mail a 30 gg dalla scandenza
+    mandare una mail a 15 gg dalla scandenza
+    mandare una mail a 7 gg dalla scandenza
+    mandare una mail ogni giorno dopo la scandenza
