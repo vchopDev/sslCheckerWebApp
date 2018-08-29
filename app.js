@@ -8,7 +8,7 @@ var methodOverride = require("method-override");
 var session = require("express-session");
 var bodyParser = require("body-parser");
 var expressValidator = require("express-validator");
-
+var Tasks = require("./cronJob/Tasks");
 var domainRouter = require("./routes/domains");
 var certificateRouter = require("./routes/certificates");
 
@@ -18,6 +18,8 @@ mongoose.connect("mongodb://localhost/SSLChecker")
   .catch(err => console.error(err));
 
 var app = express();
+
+Tasks.SyncDomainSSLStatusTask.start();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
