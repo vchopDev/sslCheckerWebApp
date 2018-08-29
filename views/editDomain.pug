@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  if domain
+    form(action=`/domains/${domain.id}` method="POST")
+        input(type="text" name="name" placeholder=`${domain.name}`).form-control
+        button(type="submit").btn.btn-success= "Submit"
+        a(href="/domains").btn.btn-danger= "Back"

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+
+  div.btn-group
+    a.btn.btn-primary.btn-lg(href="/domains/addDomain")= "Add domain"
+    a.btn.btn-info.btn-lg(href="/certificates/updateAll")= "Check All"
+
+  if domains
+    ul.list-group
+    each domain in domains
+      li.list-group-item.d-flex.justify-content-between.align-items-center= domain.name
+        if domain.expiresIn > 50
+          span.badge.badge-pill.badge-success= domain.expiresIn
+        if domain.expiresIn > 15 && domain.expiresIn < 50
+          span.badge.badge-pill.badge-warning= domain.expiresIn
+        if domain.expiresIn < 15
+          span.badge.badge-pill.badge-danger= domain.expiresIn
+      div.btn-group
+        a(href=`/domains/${domain.id}`).btn.btn-info= "Edit"
+        form(action=`/domains/delete/${domain.id}?_method=DELETE`, method="post")
+          button(type="submit").btn.btn-danger= "Delete"
+      //- a(href=`/domains/${domain.id}/delete` method="delete").btn.btn-danger= "Delete"
+        

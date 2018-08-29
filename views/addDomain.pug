@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  div.container.container.fluid
+    form(action="/domains/addDomain" method="POST")
+      input(type="text" name="name" placeholder="example.com").form-control
+      button(type="submit").btn.btn-success= "Submit"
+      a(href="/domains").btn.btn-danger= "Back"
